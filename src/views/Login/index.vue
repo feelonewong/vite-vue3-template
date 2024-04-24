@@ -1,174 +1,156 @@
 <template>
-  <div class="login-container relative wh-screen overflow-hidden">
-    <div class="login-content fixed overflow-hidden flex">
-      <div class="left">
-        <img src="../../assets/images/223502-17123277028d9c.jpg" class="wh-full" alt="" />
-      </div>
-      <div class="right">
-        <h3>登录</h3>
-        <input type="text" v-model="loginForm.account" class="input-item" placeholder="请输入你的账号" />
-        <input type="password" v-model="loginForm.password" class="input-item" placeholder="请输入你的密码" />
-        <a href="#" class="forget-password">忘记密码？</a>
-        <button class="btn" @click="handleLogin">
-          <span v-if="loading">正在登录...</span>
-          <span v-else>提交</span>
-        </button>
-      </div>
+  <div class="login-container">
+    <div class="login-top">{{ title }}</div>
+    <div class="login-desc">
+      <p>体验数据一触即达</p>
+      <p>决策云图一览无余</p>
     </div>
 
-    <footer class="login-footer-container">
-      <span>少时，春风得意马蹄疾，不信人间有别离。</span>
-    </footer>
+    <a-form class="login-form">
+      <h3 class="login-title"><span>WELCOME</span>欢迎登录</h3>
+      <a-form-item>
+        <a-input placeholder="请输入账号">
+          <template #prefix><UserOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+        </a-input>
+      </a-form-item>
+      <a-form-item>
+        <a-input-password placeholder="请输入密码">
+          <template #prefix><LockOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+        </a-input-password>
+      </a-form-item>
+      <a-form-item>
+        <div class="captcha-container">
+          <a-input placeholder="请输入验证码">
+            <template #prefix><SmileOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+          </a-input>
+          <img src="../../assets/images/no-captcha.png" alt="" srcset="" />
+        </div>
+      </a-form-item>
+      <a-form-item>
+        <a-button :loading @click="handleLogin">
+          <span>{{ loading ? `登录中...` : `登录` }}</span>
+        </a-button>
+      </a-form-item>
+    </a-form>
+
+    <div class="footer">
+      <div class="copyright">Copyright &copy; 2022 xx集团有限公司 出品</div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 defineOptions({ name: 'Login' })
 
-const route = useRoute()
-const router = useRouter()
-const userStore = useUser()
-
 /** 登录按钮 Loading */
 const loading = ref(false)
-/** 登录表单数据 */
-const loginForm = ref<LoginModule.LoginParams>({
-  account: 'admin',
-  password: '123456',
-})
-/** 计算需要跳转的路径 */
-const redirect = (route.query.redirect as string) || '/'
+/** 左上角的标题文本 */
+const title = computed(() => import.meta.env.VITE_APP_TITLE || '红旗漫卷西风')
 
 /** 处理登录按钮的回调 */
 async function handleLogin() {
   try {
     loading.value = true
-    await userStore.login(loginForm.value)
     loading.value = false
-    await router.replace({ path: redirect })
   } catch (error) {
-    console.log('error: ', error)
     loading.value = false
+    console.log('error: ', error)
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .login-container {
-  background-image: linear-gradient(to right, #65cbf7, #b3a5fc);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+  background-image: url('../../assets/images/login-bg-1.png');
+  background-size: cover;
 }
 
-.login-content {
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 450px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+.login-top {
+  position: absolute;
+  left: 25px;
+  top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.login-desc {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  font-size: 24px;
+  color: #b8c3d9;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  p ~ p {
+    margin-top: 1em;
+  }
+}
+
+.login-form {
+  float: right;
+  width: 408px;
+  min-width: 260px;
+  margin-top: 300px;
+  margin-right: 200px;
+  padding: 20px 30px;
+  background-color: rgba(245, 246, 247, 0.75);
+  box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.9), 0px 5px 20px 5px rgba(15, 21, 51, 0.1), inset -1px 1px 1px rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(136px);
   border-radius: 10px;
-}
-.left {
-  width: 60%;
-  img {
-    display: block;
-    object-fit: cover;
+  .captcha-container {
+    display: flex;
+    align-items: center;
+    img {
+      margin-left: 10px;
+      cursor: pointer;
+    }
   }
-}
-.right {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  height: 100%;
-  padding: 0 16px;
-  background-color: #fff;
-  h3 {
-    padding-top: 45px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 24px;
-    letter-spacing: 2px;
-  }
-  .input-item {
+  .ant-btn {
     width: 100%;
-    height: 44px;
-    margin-top: 16px;
-    padding: 0;
-    padding-left: 5px;
-    border-bottom: 2px solid #b3a5fc;
-  }
-  .forget-password {
-    margin-top: 16px;
-    color: #9c3493;
-    text-align: right;
-    font-size: 14px;
-  }
-  .btn {
-    cursor: pointer;
-    width: 80%;
     height: 42px;
-    margin: 0 auto;
-    margin-top: 16px;
-    color: #9c3493;
-    font-size: 18px;
-    border-radius: 16px;
-    background-image: linear-gradient(to left, #65cbf7, #b3a5fc);
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: #2b65d9;
+    letter-spacing: 2px;
+    background-color: #f5f6f7;
+    box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.9), 0px 1px 2px rgba(15, 21, 51, 0.1), inset -1px 1px 1px rgba(255, 255, 255, 0.8);
   }
 }
 
-.login-footer-container {
-  position: fixed;
+.ant-input-affix-wrapper,
+.ant-input-password {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: inset 0px 1px 3px rgba(15, 21, 51, 0.1);
+}
+
+.login-title {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 20px;
+  span {
+    color: #2b65d9;
+    margin-right: 10px;
+  }
+}
+
+.footer {
+  position: absolute;
   left: 0;
   bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  height: 40px;
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-/** 适配 PC */
-@media screen and (min-width: 992px) {
-  .login-content {
-    max-width: 950px;
-    min-width: 750px;
-  }
-}
-/** 适配 Pad */
-@media screen and (max-width: 992px) {
-  .login-content {
-    display: block;
-    height: auto;
-  }
-  .left {
-    width: 100%;
-    height: 200px;
-    margin-top: 0;
-  }
-  .right {
-    width: 100%;
-    margin-top: 0;
-    padding: 2vw;
-    h3 {
-      padding-top: 0;
-    }
-    .input-item,
-    .forget-password,
-    .btn {
-      margin-top: 2vw;
-    }
-  }
-}
-/** 适配 Mobile */
-@media screen and (max-width: 750px) {
-  .login-content {
-    width: 85%;
-  }
-  .btn {
-    margin-bottom: 2vw !important;
+  margin: 48px 0 24px;
+  text-align: center;
+  .copyright {
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 }
 </style>
