@@ -1,6 +1,6 @@
 <template>
-  <div class="login-container">
-    <div class="login-top">{{ title }}</div>
+  <div class="login-container relative wh-screen c-white bg-cover">
+    <div class="absolute pos-left-25px pos-top-20px font-bold text-size-25px">{{ title }}</div>
     <div class="login-desc">
       <p>体验数据一触即达</p>
       <p>决策云图一览无余</p>
@@ -10,20 +10,20 @@
       <h3 class="login-title"><span>WELCOME</span>欢迎登录</h3>
       <a-form-item name="account">
         <a-input placeholder="请输入你的账号" v-model:value="loginForm.account">
-          <template #prefix><UserOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+          <template #prefix><UserOutlined class="c-[#000]/25" /></template>
         </a-input>
       </a-form-item>
       <a-form-item name="password">
         <a-input-password placeholder="请输入你的密码" v-model:value="loginForm.password">
-          <template #prefix><LockOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+          <template #prefix><LockOutlined class="c-[#000]/25" /></template>
         </a-input-password>
       </a-form-item>
       <a-form-item name="captcha">
-        <div class="captcha-container">
+        <div class="flex items-center">
           <a-input placeholder="请输入验证码" v-model:value="loginForm.captcha">
-            <template #prefix><SmileOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
+            <template #prefix><SmileOutlined class="c-[#000]/25" /></template>
           </a-input>
-          <img src="../../assets/images/no-captcha.png" alt="" srcset="" />
+          <img :src="captchaURL ?? defaultCaptcha" alt="captcha" class="cursor-pointer ml-10px" />
         </div>
       </a-form-item>
       <a-form-item>
@@ -33,20 +33,23 @@
       </a-form-item>
     </a-form>
 
-    <div class="footer">
-      <div class="copyright">Copyright &copy; 2022 xx集团有限公司 出品</div>
+    <div class="mt-48px mb-24px absolute pos-left-none pos-bottom-none w-full text-center">
+      <div class="text-size-12px tracking-1px">Copyright &copy; 2022 xx集团有限公司 出品</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 defineOptions({ name: 'Login' })
+import defaultCaptcha from '@/assets/images/no-captcha.png'
 import type { Rule, FormInstance } from 'ant-design-vue/es/form'
 
 /** 登录按钮 Loading */
 const loading = ref(false)
 /** 左上角的标题文本 */
 const title = computed(() => import.meta.env.VITE_APP_TITLE || '红旗漫卷西风')
+/** 二维码图片地址 */
+const captchaURL = ref<string>()
 /** 登录表单实例 */
 const loginFormRef = ref<FormInstance>()
 /** 登录表单数据 */
@@ -73,20 +76,7 @@ async function handleLogin() {
 
 <style lang="scss" scoped>
 .login-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  color: #fff;
   background-image: url('../../assets/images/login-bg-1.png');
-  background-size: cover;
-}
-
-.login-top {
-  position: absolute;
-  left: 25px;
-  top: 20px;
-  font-size: 25px;
-  font-weight: bold;
 }
 
 .login-desc {
@@ -113,14 +103,6 @@ async function handleLogin() {
   box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.9), 0px 5px 20px 5px rgba(15, 21, 51, 0.1), inset -1px 1px 1px rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(136px);
   border-radius: 10px;
-  .captcha-container {
-    display: flex;
-    align-items: center;
-    img {
-      margin-left: 10px;
-      cursor: pointer;
-    }
-  }
   .ant-btn {
     width: 100%;
     height: 42px;
@@ -152,19 +134,6 @@ async function handleLogin() {
   span {
     color: #2b65d9;
     margin-right: 10px;
-  }
-}
-
-.footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  margin: 48px 0 24px;
-  text-align: center;
-  .copyright {
-    font-size: 12px;
-    letter-spacing: 2px;
   }
 }
 </style>
