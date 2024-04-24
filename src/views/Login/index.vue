@@ -6,21 +6,21 @@
       <p>决策云图一览无余</p>
     </div>
 
-    <a-form class="login-form">
+    <a-form class="login-form" ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
       <h3 class="login-title"><span>WELCOME</span>欢迎登录</h3>
-      <a-form-item>
-        <a-input placeholder="请输入账号">
+      <a-form-item name="account">
+        <a-input placeholder="请输入你的账号" v-model:value="loginForm.account">
           <template #prefix><UserOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
         </a-input>
       </a-form-item>
-      <a-form-item>
-        <a-input-password placeholder="请输入密码">
+      <a-form-item name="password">
+        <a-input-password placeholder="请输入你的密码" v-model:value="loginForm.password">
           <template #prefix><LockOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
         </a-input-password>
       </a-form-item>
-      <a-form-item>
+      <a-form-item name="captcha">
         <div class="captcha-container">
-          <a-input placeholder="请输入验证码">
+          <a-input placeholder="请输入验证码" v-model:value="loginForm.captcha">
             <template #prefix><SmileOutlined :style="{ color: 'rgba(0,0,0,.25)' }" /></template>
           </a-input>
           <img src="../../assets/images/no-captcha.png" alt="" srcset="" />
@@ -41,16 +41,28 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'Login' })
+import type { Rule, FormInstance } from 'ant-design-vue/es/form'
 
 /** 登录按钮 Loading */
 const loading = ref(false)
 /** 左上角的标题文本 */
 const title = computed(() => import.meta.env.VITE_APP_TITLE || '红旗漫卷西风')
+/** 登录表单实例 */
+const loginFormRef = ref<FormInstance>()
+/** 登录表单数据 */
+const loginForm = ref({ account: 'admin', password: 'admin123456', captcha: 'asdf' })
+/** 登录表单数据的校验规则 */
+const loginFormRules: Record<string, Rule[]> = {
+  account: [{ required: true, message: '请输入账号', trigger: 'blur' }],
+  password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+  captcha: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
+}
 
 /** 处理登录按钮的回调 */
 async function handleLogin() {
   try {
     loading.value = true
+    await loginFormRef.value?.validate()
     loading.value = false
   } catch (error) {
     loading.value = false
@@ -112,6 +124,7 @@ async function handleLogin() {
   .ant-btn {
     width: 100%;
     height: 42px;
+    margin-top: 16px;
     font-size: 16px;
     border: none;
     border-radius: 10px;
@@ -126,6 +139,7 @@ async function handleLogin() {
 .ant-input-password {
   height: 40px;
   border: none;
+  outline: none;
   border-radius: 10px;
   background-color: #ffffff;
   box-shadow: inset 0px 1px 3px rgba(15, 21, 51, 0.1);
