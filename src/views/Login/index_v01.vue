@@ -1,7 +1,13 @@
 <template>
-  <div class="login-container relative wh-screen flex-center c-white bg-cover">
+  <div class="login-container relative wh-screen c-white bg-cover">
+    <div class="absolute pos-left-25px pos-top-20px font-bold text-size-25px">{{ title }}</div>
+    <div class="login-desc">
+      <p>体验数据一触即达</p>
+      <p>决策云图一览无余</p>
+    </div>
+
     <a-form class="login-form" ref="loginFormRef" :model="loginForm" :rules="loginFormRules">
-      <h3 class="login-title">若依后台管理系统</h3>
+      <h3 class="login-title"><span>WELCOME</span>欢迎登录</h3>
       <a-form-item name="account">
         <a-input placeholder="请输入你的账号" v-model:value="loginForm.account">
           <template #prefix><UserOutlined class="c-[#000]/25" /></template>
@@ -20,17 +26,15 @@
           <img :src="captchaURL ?? defaultCaptcha" alt="captcha" class="cursor-pointer ml-10px" />
         </div>
       </a-form-item>
-      <a-checkbox v-model:checked="loginForm.rememberMe" class="mb-20px">记住密码</a-checkbox>
       <a-form-item>
-        <a-button :loading @click="handleLogin" type="primary" class="w-full h-40px">
+        <a-button :loading @click="handleLogin">
           <span>{{ loading ? `登录中...` : `登录` }}</span>
         </a-button>
       </a-form-item>
     </a-form>
 
-    <!--  底部  -->
-    <div class="login-footer">
-      <span>Copyright © 2018-2024 ruoyi.vip All Rights Reserved.</span>
+    <div class="mt-48px mb-24px absolute pos-left-none pos-bottom-none w-full text-center">
+      <div class="text-size-12px tracking-1px">Copyright &copy; 2022 xx集团有限公司 出品</div>
     </div>
   </div>
 </template>
@@ -49,7 +53,7 @@ const captchaURL = ref<string>()
 /** 登录表单实例 */
 const loginFormRef = ref<FormInstance>()
 /** 登录表单数据 */
-const loginForm = ref({ account: 'admin', password: 'admin123456', rememberMe: true, captcha: 'asdf' })
+const loginForm = ref({ account: 'admin', password: 'admin123456', captcha: 'asdf' })
 /** 登录表单数据的校验规则 */
 const loginFormRules: Record<string, Rule[]> = {
   account: [{ required: true, message: '请输入账号', trigger: 'blur' }],
@@ -72,37 +76,64 @@ async function handleLogin() {
 
 <style lang="scss" scoped>
 .login-container {
-  background-image: url('../../assets/images/login-bg.ruoyi.jpg');
+  background-image: url('../../assets/images/login-bg-1.png');
+}
+
+.login-desc {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  font-size: 24px;
+  color: #b8c3d9;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  p ~ p {
+    margin-top: 1em;
+  }
 }
 
 .login-form {
-  width: 400px;
-  padding: 25px 25px 5px 25px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  .login-title {
-    margin: 0px auto 30px auto;
-    text-align: center;
-    color: #707070;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  .ant-input-affix-wrapper,
-  .ant-input-password {
-    height: 38px;
+  float: right;
+  width: 408px;
+  min-width: 260px;
+  margin-top: 300px;
+  margin-right: 200px;
+  padding: 20px 30px;
+  background-color: rgba(245, 246, 247, 0.75);
+  box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.9), 0px 5px 20px 5px rgba(15, 21, 51, 0.1), inset -1px 1px 1px rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(136px);
+  border-radius: 10px;
+  .ant-btn {
+    width: 100%;
+    height: 42px;
+    margin-top: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    color: #2b65d9;
+    letter-spacing: 2px;
+    background-color: #f5f6f7;
+    box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.9), 0px 1px 2px rgba(15, 21, 51, 0.1), inset -1px 1px 1px rgba(255, 255, 255, 0.8);
   }
 }
 
-.login-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+.ant-input-affix-wrapper,
+.ant-input-password {
   height: 40px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: inset 0px 1px 3px rgba(15, 21, 51, 0.1);
+}
+
+.login-title {
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 20px;
+  span {
+    color: #2b65d9;
+    margin-right: 10px;
+  }
 }
 </style>

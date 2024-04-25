@@ -1,4 +1,4 @@
-import { LoginService } from '@/api/login'
+import { LoginService } from '@/api'
 import { getToken, removeToken, setToken } from '@/utils/cache/local-storage'
 
 /** 第一个参数是该 store 的唯一 id */
