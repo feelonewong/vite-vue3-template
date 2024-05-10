@@ -1,13 +1,9 @@
-import { resolve } from 'path' // path 模块提供了一些工具函数，用于处理文件与目录的路径
-import { defineConfig, loadEnv, normalizePath } from 'vite' // 使用 defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
-import { warpperEnv } from './build' // 引入对环境变量的处理函数
+import { defineConfig, loadEnv } from 'vite' // 使用 defineConfig 工具函数，这样不用 jsdoc 注解也可以获取类型提示
+import { warpperEnv, pathResolve } from './build' // 引入对环境变量的处理函数
 import { generateVitePlugins } from './build/plugins' // 引入抽离出去的 vite 插件集合
 
 /** 当前执行 node 命令时文件夹的地址（工作目录） 即项目根目录（也就是 index.html 文件所在的位置） */
 const root: string = process.cwd()
-
-/** 路径拼接函数，简化代码 用 normalizePath 解决 window 下的路径问题 */
-const pathResolve = (path: string): string => normalizePath(resolve(root, path))
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -73,10 +69,14 @@ export default defineConfig(({ command, mode }) => {
         output: {
           chunkFileNames: 'js/[name]-[hash].js', // 引入文件名的名称
           entryFileNames: 'js/[name]-[hash].js', // 包的入口文件名称
-          assetFileNames: '[ext]/[name]-[hash].[ext]', // 资源文件像 字体，图片等
-          /** JavaScript 最小化拆分包 让打开那个页面，加载那个页面的 js ，让其之间的关联足够小 */
-          manualChunks(id) {
-            id.includes('node_modules') && id.toString().split('node_modules/')[1].split('/')[0].toString()
+          assetFileNames(chunkInfo) {
+            const ext = chunkInfo.name.split('.')[1]
+            if (ext === 'css') return `css/[name]-[hash].css`
+            if (['png', 'jpg', 'gif', 'webp'].includes(ext)) return `img/[name]-[hash].[ext]`
+            return '[ext]/[name]-[hash].[ext]'
+          },
+          manualChunks(chunk) {
+            if (chunk.includes('node_modules')) return 'vendor'
           },
         },
       },
