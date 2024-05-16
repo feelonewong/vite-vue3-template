@@ -16,3 +16,46 @@ body {
 .showColorWeakness {
   filter: invert(0.8);
 }
+
+.el-table {
+  --table-row-spacing: 16px;
+  --table-row-radius: 10px;
+  --table-row-bgc: #f5f6f7;
+  margin-bottom: calc(-1 * var(--table-row-spacing));
+  .el-table__header {
+    th {
+      line-height: 16px;
+      color: #3d4b66;
+      letter-spacing: 1px;
+      background-color: var(--table-row-bgc);
+      /* 头部左侧圆角 */
+      &:first-child {
+        border-radius: var(--table-row-radius) 0 0 var(--table-row-radius);
+      }
+      /* 头部右侧圆角 */
+      &:last-child {
+        border-radius: 0 var(--table-row-radius) var(--table-row-radius) 0;
+      }
+    }
+  }
+  .el-table__body {
+    border-spacing: 0 var(--table-row-spacing) !important;
+  }
+  .el-table__row {
+    /* 表体行背景色 */
+    background-color: var(--table-row-bgc);
+    td {
+      /* 每行左侧圆角 */
+      &:first-child {
+        border-radius: var(--table-row-radius) 0 0 var(--table-row-radius);
+      }
+      /* 每行右侧圆角 */
+      &:last-child {
+        border-radius: 0 var(--table-row-radius) var(--table-row-radius) 0;
+      }
+    }
+  }
+  .el-table__inner-wrapper:before {
+    display: none;
+  }
+}
