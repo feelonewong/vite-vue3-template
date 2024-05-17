@@ -62,22 +62,22 @@ importers:
         version: 0.60.2
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
-        version: 5.0.4(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))
+        version: 5.0.4(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))
       '@vitejs/plugin-vue-jsx':
         specifier: ^3.1.0
-        version: 3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))
+        version: 3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@5.2.18)
       sass:
-        specifier: ^1.77.1
-        version: 1.77.1
+        specifier: ^1.77.2
+        version: 1.77.2
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
       unocss:
         specifier: 0.60.2
-        version: 0.60.2(postcss@5.2.18)(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+        version: 0.60.2(postcss@5.2.18)(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
       unplugin-auto-import:
         specifier: ^0.17.6
         version: 0.17.6(@vueuse/core@9.13.0(vue@3.4.27(typescript@5.4.5)))(rollup@4.13.0)
@@ -89,16 +89,16 @@ importers:
         version: 0.27.0(@babel/parser@7.24.5)(rollup@4.13.0)(vue@3.4.27(typescript@5.4.5))
       vite:
         specifier: ^5.2.11
-        version: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+        version: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
       vite-plugin-html:
         specifier: ^3.2.2
-        version: 3.2.2(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+        version: 3.2.2(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
       vite-plugin-imagemin:
         specifier: 0.6.1
-        version: 0.6.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
-      vite-plugin-svg-icons:
-        specifier: 2.0.1
-        version: 2.0.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+        version: 0.6.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
+      vite-plugin-svg-icons2:
+        specifier: 1.0.0
+        version: 1.0.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
       vue-tsc:
         specifier: ^2.0.19
         version: 2.0.19(typescript@5.4.5)
@@ -2141,10 +2141,6 @@ packages:
     resolution: {integrity: sha512-ODYZC64uqzmtfGMEAX/FvZiRyWLpAC3vYnNunURUnkGVTS+mI0smVsWaPydRBsE3g+ok7h960jChO8mFcWlHaQ==}
     engines: {node: '>=0.10.0'}
 
-  hasown@2.0.0:
-    resolution: {integrity: sha512-vUptKVTpIJhcczKBbgnS+RtcuYMB8+oNzPK2/Hp3hanz8JmpATdmmgLgSaadVREkDm+e2giHwY3ZRkyjSIDDFA==}
-    engines: {node: '>= 0.4'}
-
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
@@ -3201,8 +3197,8 @@ packages:
   safe-regex@1.1.0:
     resolution: {integrity: sha512-aJXcif4xnaNUzvUuC5gcb46oTS7zvg4jpMTnuqtrEPlR3vFr4pxtdTwaF1Qs3Enjn9HK+ZlwQui+a7z0SywIzg==}
 
-  sass@1.77.1:
-    resolution: {integrity: sha512-OMEyfirt9XEfyvocduUIOlUSkWOXS/LAt6oblR/ISXCTukyavjex+zQNm51pPCOiFKY1QpWvEH1EeCkgyV3I6w==}
+  sass@1.77.2:
+    resolution: {integrity: sha512-eb4GZt1C3avsX3heBNlrc7I09nyT00IUuo4eFhAbeXWU2fvA7oXI53SxODVAA+zgZCk9aunAZgO+losjR3fAwA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3695,8 +3691,8 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
-  vite-plugin-svg-icons@2.0.1:
-    resolution: {integrity: sha512-6ktD+DhV6Rz3VtedYvBKKVA2eXF+sAQVaKkKLDSqGUfnhqXl3bj5PPkVTl3VexfTuZy66PmINi8Q6eFnVfRUmA==}
+  vite-plugin-svg-icons2@1.0.0:
+    resolution: {integrity: sha512-OjluJHEaHjMXLlo++Jb09OITRh4pMLQqTy1PJZe+P4xKycLI8Rx1yFg1ES06HsppaCRLHi159DtU9VtjgXLG0Q==}
     peerDependencies:
       vite: '>=2.0.0'
 
@@ -4483,13 +4479,13 @@ snapshots:
 
   '@types/web-bluetooth@0.0.16': {}
 
-  '@unocss/astro@0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))':
+  '@unocss/astro@0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))':
     dependencies:
       '@unocss/core': 0.60.2
       '@unocss/reset': 0.60.2
-      '@unocss/vite': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+      '@unocss/vite': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
     optionalDependencies:
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
     transitivePeerDependencies:
       - rollup
 
@@ -4620,7 +4616,7 @@ snapshots:
     dependencies:
       '@unocss/core': 0.60.2
 
-  '@unocss/vite@0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))':
+  '@unocss/vite@0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@rollup/pluginutils': 5.1.0(rollup@4.13.0)
@@ -4632,7 +4628,7 @@ snapshots:
       chokidar: 3.6.0
       fast-glob: 3.3.2
       magic-string: 0.30.10
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
     transitivePeerDependencies:
       - rollup
 
@@ -4665,19 +4661,19 @@ snapshots:
       '@uppy/utils': 4.1.3
       nanoid: 3.3.7
 
-  '@vitejs/plugin-vue-jsx@3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue-jsx@3.1.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
       '@babel/core': 7.23.3
       '@babel/plugin-transform-typescript': 7.23.3(@babel/core@7.23.3)
       '@vue/babel-plugin-jsx': 1.1.5(@babel/core@7.23.3)
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
       vue: 3.4.27(typescript@5.4.5)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))':
+  '@vitejs/plugin-vue@5.0.4(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))(vue@3.4.27(typescript@5.4.5))':
     dependencies:
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
       vue: 3.4.27(typescript@5.4.5)
 
   '@volar/language-core@2.2.4':
@@ -6042,7 +6038,7 @@ snapshots:
       function-bind: 1.1.2
       has-proto: 1.0.3
       has-symbols: 1.0.3
-      hasown: 2.0.0
+      hasown: 2.0.2
 
   get-proxy@2.1.0:
     dependencies:
@@ -6220,10 +6216,6 @@ snapshots:
       is-number: 3.0.0
       kind-of: 4.0.0
 
-  hasown@2.0.0:
-    dependencies:
-      function-bind: 1.1.2
-
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
@@ -6356,7 +6348,7 @@ snapshots:
 
   is-accessor-descriptor@1.0.1:
     dependencies:
-      hasown: 2.0.0
+      hasown: 2.0.2
 
   is-array-buffer@3.0.4:
     dependencies:
@@ -6392,7 +6384,7 @@ snapshots:
 
   is-data-descriptor@1.0.1:
     dependencies:
-      hasown: 2.0.0
+      hasown: 2.0.2
 
   is-data-view@1.0.1:
     dependencies:
@@ -7263,7 +7255,7 @@ snapshots:
     dependencies:
       ret: 0.1.15
 
-  sass@1.77.1:
+  sass@1.77.2:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.4
@@ -7732,9 +7724,9 @@ snapshots:
 
   universalify@2.0.0: {}
 
-  unocss@0.60.2(postcss@5.2.18)(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)):
+  unocss@0.60.2(postcss@5.2.18)(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)):
     dependencies:
-      '@unocss/astro': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+      '@unocss/astro': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
       '@unocss/cli': 0.60.2(rollup@4.13.0)
       '@unocss/core': 0.60.2
       '@unocss/extractor-arbitrary-variants': 0.60.2
@@ -7753,9 +7745,9 @@ snapshots:
       '@unocss/transformer-compile-class': 0.60.2
       '@unocss/transformer-directives': 0.60.2
       '@unocss/transformer-variant-group': 0.60.2
-      '@unocss/vite': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0))
+      '@unocss/vite': 0.60.2(rollup@4.13.0)(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0))
     optionalDependencies:
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -7847,7 +7839,7 @@ snapshots:
 
   vary@1.1.2: {}
 
-  vite-plugin-html@3.2.2(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)):
+  vite-plugin-html@3.2.2(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       colorette: 2.0.20
@@ -7861,9 +7853,9 @@ snapshots:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
 
-  vite-plugin-imagemin@0.6.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)):
+  vite-plugin-imagemin@0.6.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)):
     dependencies:
       '@types/imagemin': 7.0.1
       '@types/imagemin-gifsicle': 7.0.4
@@ -7888,11 +7880,11 @@ snapshots:
       imagemin-webp: 6.1.0
       jpegtran-bin: 6.0.1
       pathe: 0.2.0
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-svg-icons@2.0.1(vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)):
+  vite-plugin-svg-icons2@1.0.0(vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)):
     dependencies:
       '@types/svgo': 2.6.4
       cors: 2.8.5
@@ -7902,11 +7894,11 @@ snapshots:
       pathe: 0.2.0
       svg-baker: 1.7.0
       svgo: 2.8.0
-      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0)
+      vite: 5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0)
     transitivePeerDependencies:
       - supports-color
 
-  vite@5.2.11(@types/node@20.12.12)(sass@1.77.1)(terser@5.20.0):
+  vite@5.2.11(@types/node@20.12.12)(sass@1.77.2)(terser@5.20.0):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
@@ -7914,7 +7906,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 20.12.12
       fsevents: 2.3.3
-      sass: 1.77.1
+      sass: 1.77.2
       terser: 5.20.0
 
   vue-demi@0.14.6(vue@3.4.27(typescript@5.4.5)):
