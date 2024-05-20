@@ -6,8 +6,13 @@ function _mockApiResult(result: unknown): ApiResponseData {
 
 /** 避免 hooks 写法下的命名冲突 */
 export class LoginService {
+  /** 获取验证码 */
+  static getCaptcha() {
+    return new Promise((resolve, _) => resolve(_mockApiResult('111111')))
+  }
+
   /** 登录 */
-  static login(data: LoginModule.LoginParams): ApiResult<string> {
+  static login(data: LoginEntity.LoginParams): ApiResult<string> {
     return new Promise((resolve, _) => resolve(_mockApiResult(data.account + data.password)))
   }
 

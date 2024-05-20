@@ -1,5 +1,13 @@
 <template>
-  <div class="app-container relative wh-full" :class="classes"></div>
+  <div class="app-container relative wh-full" :class="classes">
+    <el-card>
+      <el-table :data="tableData">
+        <el-table-column align="center" prop="date" label="日期" />
+        <el-table-column align="center" prop="name" label="姓名" />
+        <el-table-column align="center" prop="address" label="地址" />
+      </el-table>
+    </el-card>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -18,26 +26,10 @@ const classes = computed(() => {
 })
 
 const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
+  { date: '2016-05-03', name: 'Tom', address: 'No. 189, Grove St, Los Angeles' },
+  { date: '2016-05-02', name: 'Tom', address: 'No. 189, Grove St, Los Angeles' },
+  { date: '2016-05-04', name: 'Tom', address: 'No. 189, Grove St, Los Angeles' },
+  { date: '2016-05-01', name: 'Tom', address: 'No. 189, Grove St, Los Angeles' },
 ]
 </script>
 
