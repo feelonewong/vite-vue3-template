@@ -31,7 +31,7 @@ export function generateVitePlugins(viteEnv: ViteEnv, isBuild: boolean): PluginO
   plugins.push(registerAutoComponents())
 
   /** Element Plus 样式自动按需导入 */
-  ElementPlus({ useSource: true })
+  plugins.push(ElementPlus({ useSource: true }))
 
   /** 针对 index.html，提供压缩和基于 ejs 模板功能，亦可对其注入动态数据 */
   plugins.push(registerHtmlPlugin(viteEnv, isBuild))
