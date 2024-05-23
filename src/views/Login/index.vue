@@ -2,7 +2,7 @@
   <div class="login-container relative wh-screen overflow-hidden">
     <div class="login-content fixed overflow-hidden flex">
       <div class="left">
-        <img src="../../assets/images/223502-17123277028d9c.jpg" class="wh-full" alt="" />
+        <img src="../../assets/images/17123277028d9c.jpg" class="wh-full" alt="" />
       </div>
       <div class="right">
         <h3>登录</h3>
