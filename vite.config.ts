@@ -92,7 +92,11 @@ export default defineConfig(({ command, mode }) => {
             // 其它文件: 保存在 assets/文件名-哈希值.扩展名
             return 'assets/[name]-[hash].[ext]'
           },
+          // 打包的文件进行拆包处理
           manualChunks(chunk) {
+            // 这个 chunk 就是所有文件的绝对路径
+            // 因为 node_modules 中的依赖通常是不会改变的 所以直接单独打包出去 这个 return 的值就是打包的名称
+            // 可以利用浏览器的缓存机制 减少请求次数
             if (chunk.includes('node_modules')) return 'vendor'
           },
         },
