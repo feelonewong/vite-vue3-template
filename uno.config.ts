@@ -20,7 +20,13 @@ export default defineConfig({
   ],
 
   /** 规则定义工具类和生成的 CSS。UnoCSS 有许多内置规则，但也允许轻松添加自定义规则 https://unocss.nodejs.cn/config/rules */
-  rules: [['bg-repeat-none', { 'background-repeat': 'no-repeat' }]],
+  rules: [
+    ['bg-repeat-none', { 'background-repeat': 'no-repeat' }],
+    [/mtb-(.+)$/, ([, d]) => ({ margin: `${d} 0` })],
+    [/mlr-(.+)$/, ([, d]) => ({ margin: `0 ${d}` })],
+    [/ptb-(.+)$/, ([, d]) => ({ padding: `${d} 0` })],
+    [/plr-(.+)$/, ([, d]) => ({ padding: `0 ${d}` })],
+  ],
 
   /** 受 Windi CSS 的 启发，快捷方式可让你将多个规则组合成一个简写 https://unocss.nodejs.cn/config/shortcuts */
   shortcuts: {
