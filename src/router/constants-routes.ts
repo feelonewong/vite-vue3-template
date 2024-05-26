@@ -10,9 +10,17 @@ export const constantRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/Login/index.vue'),
     meta: { title: '登录', hidden: true },
   },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  // },
+
   {
+    // path: '/Dashboard',
     path: '/',
-    component: Layout,
+    name: 'Dashboard',
+    component: () => import('@/views/Dashboard/index.vue'),
+    meta: { title: '首页' },
   },
 
   {
