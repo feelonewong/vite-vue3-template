@@ -39,6 +39,7 @@
 defineOptions({ name: 'Login' })
 import defaultCaptcha from '@/assets/images/no-captcha.png'
 import type { Rule, FormInstance } from 'ant-design-vue/es/form'
+import { getTimeWelcome } from '@/utils/format-time'
 
 /** 登录按钮 Loading */
 const loading = ref(false)
@@ -56,13 +57,18 @@ const loginFormRules: Record<string, Rule[]> = {
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
   captcha: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
 }
+const route = useRoute()
+const router = useRouter()
+const userStore = useUser()
 
 /** 处理登录按钮的回调 */
 async function handleLogin() {
   try {
     loading.value = true
     await loginFormRef.value?.validate()
+    await userStore.login(loginForm.value)
     loading.value = false
+    router.push('/')
   } catch (error) {
     loading.value = false
     console.log('error: ', error)

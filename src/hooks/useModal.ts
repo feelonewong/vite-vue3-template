@@ -21,49 +21,49 @@ function msgError(content: string) {
 }
 
 /** 弹出提示 */
-function alert(content: string) {
-  Modal.info({ title: '系统提示', content })
+function alert(content: string, title = '系统提示') {
+  Modal.info({ title, content })
 }
 
 /** 成功提示 */
-function alertSuccess(content: string) {
-  Modal.success({ title: '系统提示', content })
+function alertSuccess(content: string, title = '系统提示') {
+  Modal.success({ title, content })
 }
 
 /** 警告提示 */
-function alertWarning(content: string) {
-  Modal.warning({ title: '系统提示', content })
+function alertWarning(content: string, title = '系统提示') {
+  Modal.warning({ title, content })
 }
 
 /** 错误提示 */
-function alertError(content: string) {
-  Modal.error({ title: '系统提示', content })
+function alertError(content: string, title = '系统提示') {
+  Modal.error({ title, content })
 }
 
 /** 通知提示 */
-function notify(content: string) {
-  notification.info({ message: '系统通知', description: content })
+function notify(content: string, message = '系统通知') {
+  notification.info({ message, description: content })
 }
 
 /** 成功通知 */
-function notifySuccess(content: string) {
-  notification.success({ message: '系统通知', description: content })
+function notifySuccess(content: string, message = '系统通知') {
+  notification.success({ message, description: content })
 }
 
 /** 警告通知 */
-function notifyWarning(content: string) {
-  notification.warning({ message: '系统通知', description: content })
+function notifyWarning(content: string, message = '系统通知') {
+  notification.warning({ message, description: content })
 }
 
 /** 错误通知 */
-function notifyError(content: string) {
-  notification.error({ message: '系统通知', description: content })
+function notifyError(content: string, message = '系统通知') {
+  notification.error({ message, description: content })
 }
 
 /** 确认窗体 */
-function confirm(content: string) {
+function confirm(content: string, title = '系统提示') {
   return new Promise((resolve, reject) => {
-    Modal.confirm({ title: '系统提示', content, onOk: () => resolve(true), onCancel: () => reject('cancel') })
+    Modal.confirm({ title, content, onOk: () => resolve(true), onCancel: () => reject('cancel') })
   })
 }
 
