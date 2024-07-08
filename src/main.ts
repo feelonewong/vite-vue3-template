@@ -3,6 +3,8 @@ import App from './App.vue'
 import { setupStore } from './store'
 import { setupRouter } from './router'
 import { setupPlugins } from './plugins'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import { setupDirectives } from './directives'
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
@@ -11,7 +13,9 @@ import './styles/index.scss'
 async function bootstrap() {
   /** 创建 Vue 应用实例 */
   const app = createApp(App)
-
+  
+  // 挂在element UI
+  app.use(ElementPlus)
   /** 自定义插件 */
   setupPlugins(app)
 

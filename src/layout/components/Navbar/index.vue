@@ -1,5 +1,34 @@
 <template>
   <nav class="navbar pl-8px">
+    <!-- logo部分 -->
+    <section class="logo">
+      <Logo></Logo>
+      <LogoSecond></LogoSecond>
+    </section>
+
+    <section>
+      <div>首页</div>
+      <section>
+        <el-dropdown>
+          <span class="el-dropdown-link"> Dropdown List </span>
+          <template trigger="click">
+            <el-dropdown-menu>
+              <el-dropdown-item>Action 1</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </section>
+      <section>
+        <el-dropdown>
+          <span class="el-dropdown-link"> Dropdown List </span>
+          <template trigger="click">
+            <el-dropdown-menu>
+              <el-dropdown-item>Action 1</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </section>
+    </section>
     <!-- 右侧 -->
     <section class="contact">
       <img src="@/assets/images/navbar/contact.png" alt="" />
@@ -13,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+import Logo from './logoWebsite.vue'
+import LogoSecond from './logo2.vue'
 defineOptions({ name: 'Navbar' })
 const router = useRouter()
 
@@ -54,12 +85,12 @@ onUnmounted(handleUnmounted)
   }
 }
 .contact {
-  width: 156.5px;
+  width: 128px;
   height: 41px;
   box-sizing: border-box;
   border-radius: 8px;
   opacity: 0.8;
-  
+
   background: #ffffff;
   box-sizing: border-box;
   border: 1px solid #cacaca;
@@ -71,6 +102,15 @@ onUnmounted(handleUnmounted)
     width: 18px;
     height: 18px;
     margin-right: 15px;
+  }
+  &:hover {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 0 6px #999;
+    box-shadow: 0 0 6px #999;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
   }
 }
 .login {
@@ -90,5 +130,21 @@ onUnmounted(handleUnmounted)
     height: 18px;
     margin-right: 15px;
   }
+
+  &:hover {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 0 6px #999;
+    box-shadow: 0 0 6px #999;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+  }
+}
+.logo {
+  width: 237px;
+  height: 72px;
+  margin-left: 220px;
+  // background-image: url('../../../assets/images/navbar/logo.png');
 }
 </style>

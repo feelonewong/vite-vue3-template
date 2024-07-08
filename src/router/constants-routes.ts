@@ -33,11 +33,11 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import(`@/views/Dashboard/index.vue`),
   },
 
-  // The not found page must be placed last
-  {
-    path: '/404',
-    component: () => import('@/views/ExceptionPage/NotFound.vue'),
-    meta: { title: 'NotFound', hidden: true },
-    alias: '/:pathMatch(.*)*',
-  },
+  // // The not found page must be placed last
+  // {
+  //   path: '/404',
+  //   component: () => import('@/views/ExceptionPage/NotFound.vue'),
+  //   meta: { title: 'NotFound', hidden: true },
+  //   alias: '/:pathMatch(.*)*',
+  // },
 ]
