@@ -26,8 +26,6 @@ async function bootstrap() {
 
   /** 挂载应用 */
   app.mount('#app')
-
-  console.log(`系统初始化完成`)
 }
 
 bootstrap()

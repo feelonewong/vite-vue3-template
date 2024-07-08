@@ -1,21 +1,19 @@
 <template>
   <nav class="navbar pl-8px">
-    <!-- 应用 logo 及标题展示组件 -->
-    <AppLogo />
-
-    <div class="right-nav h-full ml-auto">
-      <!-- 页面刷新控件 -->
-      <div class="nav-item" @click="handleRefresh" title="刷新页面">
-        <SvgIcon name="Refresh" :size="18" />
-      </div>
-    </div>
+    <!-- 右侧 -->
+    <section class="contact">
+      <img src="@/assets/images/navbar/contact.png" alt="" />
+      <span>联系我们</span>
+    </section>
+    <section class="login">
+      <img src="@/assets/images/navbar/login.png" alt="" />
+      <span>登录</span>
+    </section>
   </nav>
 </template>
 
 <script setup lang="ts">
 defineOptions({ name: 'Navbar' })
-import { AppLogo } from '..'
-
 const router = useRouter()
 
 function handleRefresh() {
@@ -39,7 +37,7 @@ onUnmounted(handleUnmounted)
   display: flex;
   align-items: center;
   width: 100%;
-  height: var(--app-navbar-height);
+  height: 100px;
   background-color: var(--app-navbar-bgc);
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
@@ -53,6 +51,44 @@ onUnmounted(handleUnmounted)
   transition: background-color 0.28s;
   &:hover {
     background-color: rgba(0, 21, 41, 0.08);
+  }
+}
+.contact {
+  width: 156.5px;
+  height: 41px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  opacity: 0.8;
+  
+  background: #ffffff;
+  box-sizing: border-box;
+  border: 1px solid #cacaca;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+  }
+}
+.login {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  margin-left: 19px;
+  width: 119.5px;
+  height: 41px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  background: linear-gradient(223deg, #c7eeff -4%, #0493d3 63%);
+  img {
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
   }
 }
 </style>

@@ -6,4 +6,13 @@
 defineOptions({ name: 'App' })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+body {
+  padding: 0;
+  margin: 0;
+}
+html {
+  padding: 0;
+  margin: 0;
+}
+</style>

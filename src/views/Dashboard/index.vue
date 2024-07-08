@@ -1,15 +1,16 @@
 <template>
   <div class="app-content">
-    <p v-for="(item, index) in 200" :key="index" text="#212121 20px">{{ item }} 首页</p>
+    <NavBar></NavBar>
   </div>
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'Dashboard' })
+import NavBar from '@/layout/components/Navbar/index.vue'
+defineOptions({ name: 'HomePage' })
 </script>
 
 <style lang="scss" scoped>
-a {
-  display: block;
+.app-content {
+  background: #fff;
 }
 </style>
