@@ -1,49 +1,56 @@
 <template>
-  <nav class="navbar pl-8px">
-    <!-- logo部分 -->
-    <section class="logo">
-      <Logo></Logo>
-      <LogoSecond></LogoSecond>
-    </section>
+  <div style="width: 100%; box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)">
+    <nav class="navbar pl-8px">
+      <!-- logo部分 -->
+      <section class="logo">
+        <Logo></Logo>
+        <LogoSecond></LogoSecond>
+      </section>
 
-    <section>
-      <div>首页</div>
-      <section>
-        <el-dropdown>
-          <span class="el-dropdown-link"> Dropdown List </span>
-          <template trigger="click">
-            <el-dropdown-menu>
-              <el-dropdown-item>Action 1</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+      <section class="drop-down-center">
+        <div>首页</div>
+        <section>
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+              学习空间 <el-icon class="el-icon--right" style="margin-left: -1px"><arrow-down /></el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>下拉条件1</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </section>
+        <section>
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+              应用场景 <el-icon class="el-icon--right" style="margin-left: -1px"><arrow-down /></el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>下拉条件2</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </section>
       </section>
-      <section>
-        <el-dropdown>
-          <span class="el-dropdown-link"> Dropdown List </span>
-          <template trigger="click">
-            <el-dropdown-menu>
-              <el-dropdown-item>Action 1</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+      <!-- 右侧 -->
+      <section class="contact">
+        <img src="@/assets/images/navbar/contact.png" alt="" />
+        <span>联系我们</span>
       </section>
-    </section>
-    <!-- 右侧 -->
-    <section class="contact">
-      <img src="@/assets/images/navbar/contact.png" alt="" />
-      <span>联系我们</span>
-    </section>
-    <section class="login">
-      <img src="@/assets/images/navbar/login.png" alt="" />
-      <span>登录</span>
-    </section>
-  </nav>
+      <section class="login">
+        <img src="@/assets/images/navbar/login.png" alt="" />
+        <span>登录</span>
+      </section>
+    </nav>
+  </div>
 </template>
 
 <script setup lang="ts">
 import Logo from './logoWebsite.vue'
 import LogoSecond from './logo2.vue'
+import { ArrowDown, Check, CircleCheck, CirclePlus, CirclePlusFilled, Plus } from '@element-plus/icons-vue'
 defineOptions({ name: 'Navbar' })
 const router = useRouter()
 
@@ -67,10 +74,10 @@ onUnmounted(handleUnmounted)
 .navbar {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 1400px;
+  margin: 0 auto;
   height: 100px;
   background-color: var(--app-navbar-bgc);
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
 .nav-item {
@@ -90,7 +97,6 @@ onUnmounted(handleUnmounted)
   box-sizing: border-box;
   border-radius: 8px;
   opacity: 0.8;
-
   background: #ffffff;
   box-sizing: border-box;
   border: 1px solid #cacaca;
@@ -144,7 +150,38 @@ onUnmounted(handleUnmounted)
 .logo {
   width: 237px;
   height: 72px;
-  margin-left: 220px;
-  // background-image: url('../../../assets/images/navbar/logo.png');
+}
+.drop-down-center {
+  margin-left: 150px;
+  width: 360px;
+  margin-right: 360px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.demonstration {
+  display: block;
+  color: #909399;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.el-dropdown-link {
+  font-weight: bold;
+  font-size: 16px;
+}
+.el-icon--right {
+  height: 1em;
+  width: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 3px;
+  font-size: inherit;
 }
 </style>
