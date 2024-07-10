@@ -84,8 +84,8 @@ onUnmounted(handleUnmounted)
   -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
   .item {
     // margin: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    // margin-left: 20px;
+    // margin-right: 20px;
     border-radius: 5px;
     letter-spacing: 0.1em;
     cursor: pointer;
@@ -107,7 +107,7 @@ onUnmounted(handleUnmounted)
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
 }
 </style>

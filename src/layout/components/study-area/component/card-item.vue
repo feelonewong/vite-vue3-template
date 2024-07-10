@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <section class="left-block">
-      <img src="@/assets/images/navbar/card-item.png" width="205" alt="" />
+      <img src="@/assets/images/navbar/card-item.png" width="200" alt="" />
     </section>
     <section class="right-block">
       <span class="title">剪纸拉花剪纸拉花剪纸拉花剪纸拉花剪纸拉花剪纸拉花剪纸拉花剪纸拉花</span>
@@ -16,7 +16,8 @@
 
 <style scoped lang="scss">
 .card {
-  width: 480px;
+  min-width: 480px;
+  margin-right: 30px;
   height: 163px;
   border-radius: 8px;
   background: #ffffff;
