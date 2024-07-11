@@ -7,7 +7,7 @@
     <div class="main">
       <section>
         <img src="@/assets/images/navbar/laptop.png" class="laptop" width="700" alt="" />
-        <img src="@/assets/images/navbar/start-btn.png" class="start-btn" width="120" />
+        <img src="@/assets/images/navbar/start-btn.png" @click="checkVideoFun" class="start-btn" width="120" />
       </section>
 
       <section class="right-tabs">
@@ -24,6 +24,16 @@
           <section class="sub-btn">立即生成2</section>
         </section>
       </section>
+
+      <!-- <div class="mask" v-if="videoState == true" @click="masksCloseFun"></div> -->
+      <el-dialog append-to-body v-model="videoState" title="哈哈哈哈哈测试标题专用" width="45vw">
+        <video :src="videoSrc" controls="controls" autoplay width="100%" height="100%">您的浏览器不支持 video 标签。</video>
+      </el-dialog>
+      <!-- 弹窗 -->
+      <!-- <div class="videomasks" v-if="videoState == true">
+        
+        <video :src="videoSrc" controls="controls" autoplay width="100%" height="100%">您的浏览器不支持 video 标签。</video>
+      </div> -->
     </div>
   </div>
 </template>
@@ -40,8 +50,16 @@ const btnList = ref([
   { name: '智能协助', key: '7' },
   { name: '贴心服务', key: '8' },
 ])
+const videoState = ref(false)
 function handleRefresh() {
   router.push(`/redirect/dashboard`)
+}
+const masksCloseFun = () => {
+  videoState.value = false
+}
+const videoSrc = ref('https://www.w3school.com.cn/i/movie.mp4')
+const checkVideoFun = () => {
+  videoState.value = true
 }
 const activeIndex = ref('1')
 const handleItemClick = (index: string) => {
@@ -194,5 +212,17 @@ onUnmounted(handleUnmounted)
   justify-content: center;
   cursor: pointer;
   background: linear-gradient(230deg, #c7eeff -31%, #0493d3 35%);
+}
+
+/* 内容层 z-index要比遮罩大，否则会被遮盖 */
+.videomasks {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  z-index: 100001;
+  /* transform: translate(-50%, -50%); */
 }
 </style>

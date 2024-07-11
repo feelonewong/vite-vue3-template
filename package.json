@@ -23,6 +23,7 @@
     "nprogress": "^0.2.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.31",
+    "vue-baidu-map-3x": "1.0.39",
     "vue-dompurify-html": "5.1.0",
     "vue-qr": "^4.0.9",
     "vue-router": "^4.4.0"

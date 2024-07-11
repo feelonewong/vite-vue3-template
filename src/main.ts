@@ -9,13 +9,21 @@ import { setupDirectives } from './directives'
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 import './styles/index.scss'
-
+import BaiduMap from 'vue-baidu-map-3x'
 async function bootstrap() {
   /** 创建 Vue 应用实例 */
   const app = createApp(App)
   
   // 挂在element UI
   app.use(ElementPlus)
+
+  // 挂在百度地图插件
+  app.use(BaiduMap, {
+    // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
+    ak: 'bMBDrJNaufA8WskPpo2RCXWj3bwbiEtZ',
+    // v:'2.0',  // 默认使用3.0
+    // type: 'WebGL' // ||API 默认API  (使用此模式 BMap=BMapGL)
+  });
   /** 自定义插件 */
   setupPlugins(app)
 

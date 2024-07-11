@@ -3,6 +3,7 @@
     <nav-bar></nav-bar>
     <grid-area></grid-area>
     <news-info></news-info>
+    <study-guide></study-guide>
     <spec-app></spec-app>
     <study-space></study-space>
     <study-area></study-area>
@@ -16,6 +17,7 @@ import NewsInfo from '@/layout/components/news-info/index.vue'
 import GridArea from '@/layout/components/grid-area/index.vue'
 import SpecApp from '@/layout/components/spec-app/index.vue'
 import StudySpace from '@/layout/components/study-space/index.vue'
+import StudyGuide from '@/layout/components/study-guide/index.vue'
 import StudyArea from '@/layout/components/study-area/index.vue'
 import FooterBar from '@/layout/components/Footerbar/index.vue'
 defineOptions({ name: 'HomePage' })
