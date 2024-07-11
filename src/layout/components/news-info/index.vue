@@ -13,28 +13,34 @@
               <section @mouseover.native="handleMouseLeave('1')">
                 <span> {{ activities[0].content }}</span>
               </section>
-              <section v-if="hoverStatus !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave('1')">
-                <div class="breathing-light"></div>
-                {{ hoverStatus != null ? activities[0].content : '' }}
-              </section>
+              <transition name="fade">
+                <section v-if="hoverStatus !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave('1')">
+                  <div class="breathing-light"></div>
+                  {{ hoverStatus != null ? activities[0].content : '' }}
+                </section>
+              </transition>
             </el-timeline-item>
             <el-timeline-item :type="activities[1].type" :color="activities[1].color" :size="activities[1].size" class="hover-item" :timestamp="activities[1].timestamp">
               <section @mouseover.native="handleMouseLeave2('2')">
                 <span> {{ activities[1].content }}</span>
               </section>
-              <section v-if="hoverStatus2 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave2('2')">
-                <div class="breathing-light"></div>
-                {{ hoverStatus2 != null ? activities[1].content : '' }}
-              </section>
+              <transition name="fade">
+                <section v-if="hoverStatus2 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave2('2')">
+                  <div class="breathing-light"></div>
+                  {{ hoverStatus2 != null ? activities[1].content : '' }}
+                </section>
+              </transition>
             </el-timeline-item>
             <el-timeline-item :type="activities[2].type" :color="activities[2].color" :size="activities[2].size" class="hover-item" :timestamp="activities[2].timestamp">
               <!-- @mouseover="handleMouseLeave(String(index))" @mouseleave="leaveMouseLeave(String(index))" -->
               <section @mouseover.native="handleMouseLeave3('3')">
                 <span> {{ activities[2].content }}</span>
-                <section v-if="hoverStatus3 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave3('3')">
-                  <div class="breathing-light"></div>
-                  {{ hoverStatus3 != null ? activities[2].content : '' }}
-                </section>
+                <transition name="fade">
+                  <section v-if="hoverStatus3 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave3('3')">
+                    <div class="breathing-light"></div>
+                    {{ hoverStatus3 != null ? activities[2].content : '' }}
+                  </section>
+                </transition>
               </section>
             </el-timeline-item>
             <el-timeline-item :type="activities[3].type" :color="activities[3].color" :size="activities[3].size" class="hover-item" :timestamp="activities[3].timestamp">
@@ -42,19 +48,23 @@
               <section @mouseover.native="handleMouseLeave4('4')">
                 <span> {{ activities[3].content }}</span>
               </section>
-              <section v-if="hoverStatus4 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave4('4')">
-                <div class="breathing-light"></div>
-                {{ hoverStatus4 != null ? activities[3].content : '' }}
-              </section>
+              <transition name="fade">
+                <section v-if="hoverStatus4 !== null" class="hover-preview" @mouseleave.native="leaveMouseLeave4('4')">
+                  <div class="breathing-light"></div>
+                  {{ hoverStatus4 != null ? activities[3].content : '' }}
+                </section>
+              </transition>
             </el-timeline-item>
             <!-- <section v-if="hoverStatus !== null" class="hover-preview">
             {{ hoverStatus != null ? activities[hoverStatus].content : '' }}
           </section> -->
           </el-timeline>
         </div>
-        <div class="right-img">
-          <img :src="imgSrc" width="100%" height="300px" alt="" />
-        </div>
+        <transition name="fade">
+          <div class="right-img">
+            <img :src="imgSrc" width="100%" height="300px" alt="" />
+          </div>
+        </transition>
       </div>
     </div>
   </div>
@@ -243,7 +253,9 @@ const handleMouseLeave4 = (index: string) => {
   border-radius: 10px;
   padding: 20px;
   padding-bottom: 30px;
-  transition: all 1.5s ease;
+  opacity: 1; /* 默认不透明 */
+
+  transition: opacity 1s ease-in-out;
   transform: scale(1.04);
 }
 
@@ -266,5 +278,15 @@ const handleMouseLeave4 = (index: string) => {
   100% {
     box-shadow: 0 0 2px 2px rgba(173, 216, 230, 0.5);
   }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
