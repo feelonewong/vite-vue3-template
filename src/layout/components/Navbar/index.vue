@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)">
+  <div style="width: 100%; border-bottom: 1px solid #dcdcdc; box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)">
     <nav class="navbar pl-8px">
       <!-- logo部分 -->
       <section class="logo">
@@ -74,9 +74,9 @@ onUnmounted(handleUnmounted)
 .navbar {
   display: flex;
   align-items: center;
-  width: 1400px;
+  width: 1200px;
   margin: 0 auto;
-  height: 100px;
+  height: 80px;
   background-color: var(--app-navbar-bgc);
 }
 
@@ -92,7 +92,7 @@ onUnmounted(handleUnmounted)
   }
 }
 .contact {
-  width: 128px;
+  width: 148px;
   height: 41px;
   box-sizing: border-box;
   border-radius: 8px;
@@ -107,7 +107,7 @@ onUnmounted(handleUnmounted)
   img {
     width: 18px;
     height: 18px;
-    margin-right: 15px;
+    margin-right: 8px;
   }
   &:hover {
     -webkit-transform: translateY(-3px);
@@ -148,13 +148,13 @@ onUnmounted(handleUnmounted)
   }
 }
 .logo {
-  width: 237px;
+  width: 327px;
   height: 72px;
 }
 .drop-down-center {
-  margin-left: 150px;
+  margin-left: 100px;
   width: 360px;
-  margin-right: 360px;
+  margin-right: 310px;
   display: flex;
   justify-content: space-between;
   font-size: 16px;

@@ -4,7 +4,7 @@
       <span class="title">学习规划</span>
       <span class="desc">根据您存入学分银行的学习成果及部分学习过程，为您推荐如下内容:</span>
 
-      <section class="item-collection" style="--t: 10s">
+      <section class="item-collection" style="--t: 25s">
         <div class="item-wrapper">
           <CardItem class="item"></CardItem>
           <CardItem class="item"></CardItem>
@@ -13,7 +13,7 @@
           
         </div>
       </section>
-      <section class="item-collection last" style="--t: 16s">
+      <section class="item-collection last" style="--t: 36s">
         <div class="item-wrapper">
           <CardItem class="item"></CardItem>
           <CardItem class="item"></CardItem>
@@ -99,7 +99,7 @@ onUnmounted(handleUnmounted)
   display: flex;
   // white-space: nowrap;
   animation: animate var(--t) linear infinite;
-  animation-delay: calc(var(--t) * -1);
+  animation-delay: calc(var(--t) * -2);
 }
 @keyframes animate {
   0% {
